@@ -1,0 +1,203 @@
+body{
+	letter-spacing: .4px;
+}
+footer {
+	bottom:0;
+	background-color:darken($brand-primary, 25%);
+	color:#fff;
+	padding:70px 50px;
+}
+footer a {
+	text-decoration: none;
+	color:#fff;
+}
+footer a:hover {
+	text-decoration: underline;
+	color:$gray-lighter;
+}
+.belowfooter {
+	background-color: #000;
+	padding:20px;
+	color:white;
+}
+.belowfooter a {
+	text-decoration: none;
+	color:white;
+}
+.belowfooter a:hover {
+	text-decoration: none;
+	color:$brand-info;
+}
+.label{
+	font-weight: normal;
+}
+/* Navigation */
+.cpsNavBar {
+	font-family:$font-family-sans-serif;
+	border-bottom:1px solid #e6e6e6;
+	padding: 10px 0px 10px 15px;
+}
+.navbarButton {
+	font-family:$font-family-sans-serif;
+	border:0px;
+	margin-top:23px;
+}
+.navTitle {
+	font-family:$font-family-sans-serif;
+	padding-top:30px;
+	margin-left:10px !important;
+	margin-right:10px !important;
+	color: $brand-primary;
+}
+.navTitleSmall {
+	font-family:$font-family-sans-serif;
+	margin-top:15px;
+	font-size: 14px;
+}
+.navTabs {
+	font-family:$font-family-sans-serif;
+	padding-top:15px;
+}
+.nav_nonlink{
+	padding-top:13px;
+	padding-bottom:13px;
+}
+.nav_sitename{
+	font-size: 18px;
+	padding-top: 12px !important;
+}
+.nav > li > a:hover.nav_sitename, .nav > li > a:focus.nav_sitename {
+    text-decoration: none;
+    background-color: transparent;
+}
+//_navbar.scss override
+@media (min-width: $grid-float-breakpoint) {
+  .navbar-left {
+    float: left !important;
+  }
+  .navbar-right {
+    float: right !important;
+  margin-right: 0px;//-$navbar-padding-horizontal
+
+    ~ .navbar-right {
+      margin-right: 0;
+    }
+  }
+}
+//
+.banner{
+	padding:20px 0px;
+	margin-bottom:50px;
+}
+.banner > .banner_content {
+	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
+	height: 100%;
+	min-height: 250px;
+}
+.banner__blue{
+	background-color:$brand-primary;
+	color:#fff;
+}
+.banner__green{
+	background-color:$brand-success;
+	color:#fff;
+}
+.banner__purple{
+	background-color:$brand-purple;
+	color:#fff;
+}
+.banner__orange{
+	background-color:$brand-warning;
+	color:#fff;
+}
+.banner__purple{
+	background-color:$brand-purple;
+	color:#fff;
+}
+.banner__gray{
+	background-color:$gray-light;
+	color:#fff;
+}
+.banner__img{
+	background-color:$brand-primary;
+	background-image: attr(bg-img url);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color:#fff;
+}
+.banner h1{
+	font-size: 6rem;
+}
+/* Responsive Tables*/
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 700px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	.table_responsive table { 
+	  	width: 100%; 
+	}
+
+	/* Force table to not be like tables anymore 
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	*/
+	.table_responsive table{
+		display:block;
+	}
+	.table_responsive thead{
+		display:block;
+	}
+	.table_responsive tbody{
+		display:block;
+	}
+	.table_responsive th{
+		display:block;
+	}
+	.table_responsive td{
+		display:block;
+	}
+	.table_responsive tr{
+		display:block;
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.table_responsive thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.table_responsive tr { border: 1px solid #ccc; }
+	
+	.table_responsive td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50% !important; //Important for responsive tables 
+	}
+
+	.table_responsive td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		/* Label the data */
+		content: attr(data-column);
+		color: #000;
+		font-weight: bold;
+	}
+
+}

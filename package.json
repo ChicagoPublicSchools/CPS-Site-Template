@@ -1,0 +1,36 @@
+{
+  "name": "cps_site-template",
+  "version": "0.2.0",
+  "description": "Site Template",
+  "main": "index.html",
+  "scripts": {
+    "html": "cp index.html dist/",
+    "images": "cp -R images/ dist/images/",
+    "fonts": "cp -R fonts/ dist/fonts/",
+    "assets": "npm run images && npm run fonts",
+    "sass-dev": "sass css/cps.scss css/cps.css",
+    "sass-build": "sass css/cps.scss css/cps.min.css --style compressed",
+    "sass-prod": "sass css/cps.scss dist/css/cps.min.css --style compressed",
+    "uglify-js": "uglifyjs js/bootstrap.js js/cps.js -o js/cps.min.js",
+    "uglify-prod": "uglifyjs js/bootstrap.js js/cps.js -o dist/js/cps.min.js",
+    "dev": "npm run sass-dev && npm run uglify-js",
+    "prod-build": "npm run sass-prod && npm run uglify-prod && npm run html && npm run assets",
+    "start-dev": "npm run dev && httpserver",
+    "start-prod": "cd dist && httpserver"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChicagoPublicSchools/CPS-Site-Template.git"
+  },
+  "author": "Matt Riel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChicagoPublicSchools/CPS-Site-Template/issues"
+  },
+  "homepage": "https://github.com/ChicagoPublicSchools/CPS-Site-Template#readme",
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "httpserver": "^0.3.0",
+    "uglify-js": "^3.3.4"
+  }
+}
